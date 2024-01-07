@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { LiaTemperatureHighSolid } from "react-icons/lia";
 import { FaMapLocationDot } from "react-icons/fa6";
-import axios from "axios";
 import "../Home/Home.css";
 
 const Home = () => {
 
-    const [Location, setLocation] = useState("")
+    const [Location, setLocation] = useState("Boston")
     const [data, setData] = useState([])
     const [Icon, setIcon] = useState([])
     const [weatherData, setWeatherData] = useState([])
@@ -62,11 +61,11 @@ const Home = () => {
             })
         }   
     
-        if (Icon) {
+        if (data) {
             fetchForecast()
-        }
+        } 
 
-    },[Icon])
+    }, [data])
 
 return (
     <div className='Home' >
@@ -82,7 +81,7 @@ return (
                 <figure>
                     <h2>Present</h2>
                     {data.weather ? <h3 className="Description">{data.weather[0].main}</h3> : null }
-                    <img src={`http://openweathermap.org/img/wn/${Icon.icon}@2x.png`} alt="Weather_Icon" /> 
+                    <img src={`http://openweathermap.org/img/wn/${Icon.icon}@2x.png`} alt="Weather Icon" /> 
                     {data.weather ? <p className="Description">{data.weather[0].description}</p> : null }
                     {data.main ? <h1>{data.main.temp} °C</h1> : null}
                     <figcaption>
@@ -161,7 +160,7 @@ return (
                     (!weatherData) ?  "" :(
                         <figure>
                             { weatherData.weather ? <h3>{weatherData.weather[0].main}</h3> : null}
-                            <img src={`http://openweathermap.org/img/wn/${WeatherIcon}@2x.png`} alt="Weather_Icon" /> 
+                            <img src={`http://openweathermap.org/img/wn/${WeatherIcon}@2x.png`} alt="" /> 
                             { weatherData.weather ? <p>{weatherData.weather[0].description}</p> : null }
                             { weatherData.main ? <h1>{weatherData.main.temp} °C</h1> : null }
                             <p>{weatherData.dt_txt}</p>
@@ -172,7 +171,7 @@ return (
                     (!weatherData2) ?  "" : (
                         <figure>
                             { weatherData2.weather ? <h3>{weatherData2.weather[0].main}</h3> : null}
-                            <img src={`http://openweathermap.org/img/wn/${WeatherIcon2}@2x.png`} alt="Weather_Icon" /> 
+                            <img src={`http://openweathermap.org/img/wn/${WeatherIcon2}@2x.png`} alt="" /> 
                             { weatherData2.weather ? <p>{weatherData2.weather[0].description}</p> : null }
                             { weatherData2.main ? <h1>{weatherData2.main.temp} °C</h1> : null }
                             <p>{weatherData2.dt_txt}</p>
@@ -183,7 +182,7 @@ return (
                     (!weatherData3) ?  "" : (
                         <figure>
                             { weatherData3.weather ? <h3>{weatherData3.weather[0].main}</h3> : null}
-                            <img src={`http://openweathermap.org/img/wn/${WeatherIcon3}@2x.png`} alt="Weather_Icon" /> 
+                            <img src={`http://openweathermap.org/img/wn/${WeatherIcon3}@2x.png`} alt="" /> 
                             { weatherData3.weather ? <p>{weatherData3.weather[0].description}</p> : null }
                             { weatherData3.main ? <h1>{weatherData3.main.temp} °C</h1> : null }
                             <p>{weatherData3.dt_txt}</p>
@@ -194,7 +193,7 @@ return (
                     (!weatherData4) ?  "" : (
                         <figure>
                             { weatherData4.weather ? <h3>{weatherData4.weather[0].main}</h3> : null}
-                            <img src={`http://openweathermap.org/img/wn/${WeatherIcon4}@2x.png`} alt="Weather_Icon" /> 
+                            <img src={`http://openweathermap.org/img/wn/${WeatherIcon4}@2x.png`} alt="" /> 
                             { weatherData4.weather ? <p>{weatherData4.weather[0].description}</p> : null }
                             { weatherData4.main ? <h1>{weatherData4.main.temp} °C</h1> : null }
                             <p>{weatherData4.dt_txt}</p>
@@ -205,7 +204,7 @@ return (
                     (!weatherData5) ?  "" : (
                         <figure>
                             { weatherData5.weather ? <h3>{weatherData5.weather[0].main}</h3> : null}
-                            <img src={`http://openweathermap.org/img/wn/${WeatherIcon5}@2x.png`} alt="Weather_Icon" /> 
+                            <img src={`http://openweathermap.org/img/wn/${WeatherIcon5}@2x.png`} alt="" /> 
                             { weatherData5.weather ? <p>{weatherData5.weather[0].description}</p> : null }
                             { weatherData5.main ? <h1>{weatherData5.main.temp} °C</h1> : null }
                             <p>{weatherData5.dt_txt}</p>
@@ -216,7 +215,7 @@ return (
                     (!weatherData6) ?  "" : (
                         <figure>
                             { weatherData6.weather ? <h3>{weatherData6.weather[0].main}</h3> : null}
-                            <img src={`http://openweathermap.org/img/wn/${WeatherIcon6}@2x.png`} alt="Weather_Icon" /> 
+                            <img src={`http://openweathermap.org/img/wn/${WeatherIcon6}@2x.png`} alt="" /> 
                             { weatherData6.weather ? <p>{weatherData6.weather[0].description}</p> : null }
                             { weatherData6.main ? <h1>{weatherData6.main.temp} °C</h1> : null }
                             <p>{weatherData6.dt_txt}</p>
@@ -227,7 +226,7 @@ return (
                     (!weatherData7) ?  "" : (
                         <figure>
                             { weatherData7.weather ? <h3>{weatherData7.weather[0].main}</h3> : null}
-                            <img src={`http://openweathermap.org/img/wn/${WeatherIcon7}@2x.png`} alt="Weather_Icon" /> 
+                            <img src={`http://openweathermap.org/img/wn/${WeatherIcon7}@2x.png`} alt="" /> 
                             { weatherData7.weather ? <p>{weatherData7.weather[0].description}</p> : null }
                             { weatherData7.main ? <h1>{weatherData7.main.temp} °C</h1> : null }
                             <p>{weatherData7.dt_txt}</p>
