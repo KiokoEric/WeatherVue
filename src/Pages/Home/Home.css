@@ -46,6 +46,11 @@
     padding: 0.45rem 0.5rem;
     width: 100px;
 }
+.Error {
+    color: red;
+    font-size: 18px;
+    text-align: center;
+}
 .DayHighlights {
     display: flex;
     flex-direction: row;

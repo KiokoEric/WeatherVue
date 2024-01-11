@@ -5,7 +5,9 @@ import "../Home/Home.css";
 
 const Home = () => {
 
-    const [Location, setLocation] = useState("Boston")
+    const [Location, setLocation] = useState("Nairobi")
+    const [SearchError, setSearchError] = useState("")
+    const [Error, setError] = useState("")
     const [data, setData] = useState([])
     const [Icon, setIcon] = useState([])
     const [weatherData, setWeatherData] = useState([])
@@ -30,17 +32,28 @@ const Home = () => {
     const fetchData = async(e) => {
         e.preventDefault()
 
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${Location}&appid=630ec6679e5afaa746a4d818be324ae1&units=metric`)
-        .then((response) => response.json())
-        .then((data) => {
-            setData(data)
-            setIcon(data.weather[0])
-        })
+        if(Location === "") {
+            setSearchError("Kindly enter a location.")
+        } else {
+            try{
+                fetch(`https://api.openweathermap.org/data/2.5/weather?q=${Location}&appid=630ec6679e5afaa746a4d818be324ae1&units=metric`)
+                .then((response) => response.json())
+                .then((data) => {
+                    setData(data)
+                    setSearchError("")
+                    setIcon(data.weather[0])
+                }) 
+            } catch (error) {
+                setSearchError("")
+                setError("Location not found!")
+                console.error(error);
+            }
+        }
     }
 
     useEffect(() => {
-        
-        const fetchForecast = async () => {
+
+        try {
             fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${Location}&units=metric&cnt=7&appid=630ec6679e5afaa746a4d818be324ae1`) 
             .then((response) => response.json())
             .then((Data) => {
@@ -59,11 +72,9 @@ const Home = () => {
                 setWeatherData7(Data.list[6])
                 setWeatherIcon7(Data.list[6].weather[0].icon)
             })
-        }   
-    
-        if (data) {
-            fetchForecast()
-        } 
+        } catch (error) {
+            console.error(error)
+        }
 
     }, [data])
 
@@ -75,6 +86,8 @@ return (
                 <input type="text" name="" id="" placeholder='Search Location...' value={Location} onChange={handleSearch}  />
                 <button onClick={fetchData} >Search</button>
             </form>
+            <p className='Error'>{SearchError}</p>
+            <p className='Error'>{Error}</p>
         </article>
         <article className='DayHighlights' >
             <section>
