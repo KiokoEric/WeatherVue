@@ -7,7 +7,7 @@ WeatherVue is your ultimate destination for accurate and up-to-date weather fore
   
 The website application was built using React JS and Open Weather API.
 
-[Live Demo](https://vercel.com/eric-kiokos-projects/weather-vue)
+[Live Demo](https://weather-vue-theta.vercel.app/)
 </div>
 
 <div>
