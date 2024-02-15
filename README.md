@@ -3,7 +3,7 @@
 <div align="center" >
 WeatherVue is your ultimate destination for accurate and up-to-date weather forecasts and information. The website provides comprehensive weather forecasts tailored to the user's location, ensuring they're always prepared for whatever Mother Nature brings their way.
 
-  <br><br>
+  <br>
   
 The website application was built using React JS and Open Weather API.
 
