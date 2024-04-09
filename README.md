@@ -1,7 +1,7 @@
 <h1 align="center"> Welcome to WEATHER VUE </h1>
 
 <div align="center"  >
-  <p style="font-family: Lucida Console" >
+  <p>
       WeatherVue is your ultimate destination for accurate and up-to-date weather forecasts and information. The website provides comprehensive weather forecasts tailored to the user's location,       ensuring they're always prepared for whatever Mother Nature brings their way.
   </p>
   <br>
